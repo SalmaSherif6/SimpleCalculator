@@ -43,6 +43,23 @@ namespace TestCalculator.Controllers
 
 
         }
+
+        [Fact]
+        public void Calculator_SumFromOne_ReturnOk_Sarah()
+        {
+            // Arrange
+            var controller = new CalculatorController();
+            int num1 = 5;
+
+
+            // Act
+            var sum = controller.SumFromOne_Sarah(num1) as OkObjectResult;
+
+
+            // Assert
+            Assert.Equal("Sum : " + 15, sum.Value);
+
+        }
     }
 }
 

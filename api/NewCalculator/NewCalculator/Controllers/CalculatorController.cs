@@ -27,7 +27,20 @@ namespace NewCalculator.Controllers
                 return Ok("Sum is :"+sum)
             }
         }
-        
+
+        [HttpGet("SumFromOne_Sarah/{number}")]
+        public IActionResult SumFromOne_Sarah(int number)
+        {
+            int sum = 0;
+            while (number > 0)
+            {
+                sum = sum + number;
+                number = number - 1;
+            }
+            return Ok("Sum : " + sum);
+        }
+
+
 
 
     }

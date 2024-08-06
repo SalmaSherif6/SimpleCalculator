@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\api",
+    "\\api\\NewCalculator",
+    "\\api\\NewCalculator\\CaculatorTest",
+    "\\api\\NewCalculator\\CaculatorTest\\Controllers",
+    "\\api\\NewCalculator\\NewCalculator",
+    "\\api\\NewCalculator\\Test",
+    "\\api\\NewCalculator\\TestCalculator",
+    "\\api\\NewCalculator\\TestCalculator\\Controllers"
+  ],
+  "SelectedNode": "\\api\\NewCalculator\\TestCalculator\\Controllers\\CalculatorTester.cs",
+  "PreviewInSolutionExplorer": false
+}
