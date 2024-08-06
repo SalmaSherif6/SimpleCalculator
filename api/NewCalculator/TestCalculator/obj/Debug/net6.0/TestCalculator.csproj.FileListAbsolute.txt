@@ -110,3 +110,6 @@ D:\training\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\r
 D:\training\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\TestCalculator.pdb
 D:\training\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\TestCalculator.genruntimeconfig.cache
 D:\training\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\ref\TestCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\TestCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\refint\TestCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\TestCalculator\obj\Debug\net6.0\TestCalculator.pdb
