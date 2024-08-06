@@ -23,7 +23,7 @@ namespace NewCalculator.Controllers
         {
             int sum=0;
             for(int i=number;i>0;i--){
-                 sum=sum+number;
+                 sum=sum+i;
                 return Ok("Sum is :"+sum)
             }
         }
