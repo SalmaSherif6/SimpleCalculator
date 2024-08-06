@@ -27,5 +27,21 @@ namespace TestCalculator.Controllers
             Assert.Equal("Sum : " + 8, sum.Value);
 
         }
+        [Fact]
+        public void Calculator_SumFromOne_ReturnOk_Youssef(){
+            // Arrange
+            var controller= new CalculatorController();
+            int num = 5;
+
+            // Act
+            var sum = controller.SumFromOne_Youssef(num) as OkObjectResult
+
+            // Assert
+            Assert.Equal("Sum is :" + 15, sum.Value);
+            
+
+
+
+        }
     }
 }

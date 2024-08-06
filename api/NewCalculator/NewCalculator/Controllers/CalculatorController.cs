@@ -18,6 +18,16 @@ namespace NewCalculator.Controllers
             int  sum = number1 + number2;
             return Ok("Sum : "+sum);
         }
+        [HttpGet("SumFromOne_Youssef/{number}")]
+        public IActionResult SumFromOne_Youssef(int number)
+        {
+            int sum=0;
+            for(int i=number;i>0;i--){
+                 sum=sum+number;
+                return Ok("Sum is :"+sum)
+            }
+        }
+        
 
 
     }
