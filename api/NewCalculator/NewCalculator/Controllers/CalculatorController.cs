@@ -22,4 +22,16 @@ namespace NewCalculator.Controllers
 
     }
 
+    [HttpGet("SumFromOne_Sarah/{number}")]
+    public IActionResult SumFromOne__Sarah(int number)
+    {
+        int sum = 0;
+        while (number > 0)
+        {
+            sum = sum + number;
+            number = number - 1;
+        }
+        return Ok("Sum : " + sum);
+    }
+
 }

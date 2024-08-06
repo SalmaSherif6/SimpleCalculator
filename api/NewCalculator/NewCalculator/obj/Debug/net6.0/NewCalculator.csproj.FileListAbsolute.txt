@@ -31,3 +31,6 @@ D:\training\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\re
 D:\training\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\NewCalculator.pdb
 D:\training\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\NewCalculator.genruntimeconfig.cache
 D:\training\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\ref\NewCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\NewCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\refint\NewCalculator.dll
+C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\NewCalculator\obj\Debug\net6.0\NewCalculator.pdb
