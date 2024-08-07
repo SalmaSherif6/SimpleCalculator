@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TestCalculator
-build_property.ProjectDir = C:\Users\sarah\OneDrive\Desktop\Calculator2\SimpleCalculator\api\NewCalculator\TestCalculator\
+build_property.ProjectDir = C:\Users\LENOVO\source\repos\calculator\SimpleCalculator\api\NewCalculator\TestCalculator\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

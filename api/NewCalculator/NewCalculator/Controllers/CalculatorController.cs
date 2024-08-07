@@ -21,12 +21,19 @@ namespace NewCalculator.Controllers
         [HttpGet("SumFromOne_Youssef/{number}")]
         public IActionResult SumFromOne_Youssef(int number)
         {
-            int sum=0;
-            for(int i=number;i>0;i--){
-                 sum=sum+i;
-                return Ok("Sum is :"+sum)
+            if (number <= 0)
+            {
+                return BadRequest("Number must be greater than 0");
             }
+
+            int sum = 0;
+            for (int i = number; i > 0; i--)
+            {
+                sum += i;
+            }
+            return Ok("Sum is: " + sum);
         }
+
 
         [HttpGet("SumFromOne_Sarah/{number}")]
         public IActionResult SumFromOne_Sarah(int number)
@@ -40,11 +47,21 @@ namespace NewCalculator.Controllers
             return Ok("Sum : " + sum);
         }
 
+        [HttpGet("SumFromOne_Zeyad/{number}")]
+        public IActionResult SumFromOne_Zeyad(int number)
+        {
+            int sum = 0;
+            for (int i = number; i > 0; i--)
+            {
+                sum += i;
+            }
+            return Ok("Sum is :" + sum);
+        }
 
 
 
     }
 
-    
+
 
 }

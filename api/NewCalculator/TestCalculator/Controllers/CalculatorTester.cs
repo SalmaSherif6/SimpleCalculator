@@ -34,7 +34,7 @@ namespace TestCalculator.Controllers
             int num = 5;
 
             // Act
-            var sum = controller.SumFromOne_Youssef(num) as OkObjectResult
+            var sum = controller.SumFromOne_Youssef(num) as OkObjectResult;
 
             // Assert
             Assert.Equal("Sum is :" + 15, sum.Value);
@@ -58,6 +58,23 @@ namespace TestCalculator.Controllers
 
             // Assert
             Assert.Equal("Sum : " + 15, sum.Value);
+
+        }
+        [Fact]
+        public void Calculator_SumFromOne_ReturnOk_Zeyad()
+        {
+            // Arrange
+            var controller = new CalculatorController();
+            int num2 = 5;
+
+            // Act
+            var sum = controller.SumFromOne_Zeyad(num2) as OkObjectResult;
+
+            // Assert
+            Assert.Equal("Sum is :" + 15, sum.Value);
+
+
+
 
         }
     }
