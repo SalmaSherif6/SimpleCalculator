@@ -9,8 +9,10 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'my-new-appe';
-
+  title = 'my-new-app';
+  getNumber(){
+    return 20;
+  }
   doDivide(num : number){
     return num/2;
   }

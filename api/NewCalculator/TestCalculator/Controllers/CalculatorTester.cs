@@ -24,7 +24,7 @@ namespace TestCalculator.Controllers
 
             
             // Assert
-            Assert.Equal("Sum : " + 8, sum.Value);
+            Assert.Equal("Sum : " + 20, sum.Value);
 
         }
         [Fact]

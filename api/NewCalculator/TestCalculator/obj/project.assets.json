@@ -5962,23 +5962,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LENOVO\\.nuget\\packages\\": {},
+    "C:\\Users\\nabilfawzy\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\source\\repos\\calculator\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\TestCalculator.csproj",
+      "projectUniqueName": "D:\\training\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\TestCalculator.csproj",
       "projectName": "TestCalculator",
-      "projectPath": "C:\\Users\\LENOVO\\source\\repos\\calculator\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\TestCalculator.csproj",
-      "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\source\\repos\\calculator\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\obj\\",
+      "projectPath": "D:\\training\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\TestCalculator.csproj",
+      "packagesPath": "C:\\Users\\nabilfawzy\\.nuget\\packages\\",
+      "outputPath": "D:\\training\\SimpleCalculator\\api\\NewCalculator\\TestCalculator\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nabilfawzy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -5987,14 +5987,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\LENOVO\\source\\repos\\calculator\\SimpleCalculator\\api\\NewCalculator\\NewCalculator\\NewCalculator.csproj": {
-              "projectPath": "C:\\Users\\LENOVO\\source\\repos\\calculator\\SimpleCalculator\\api\\NewCalculator\\NewCalculator\\NewCalculator.csproj"
+            "D:\\training\\SimpleCalculator\\api\\NewCalculator\\NewCalculator\\NewCalculator.csproj": {
+              "projectPath": "D:\\training\\SimpleCalculator\\api\\NewCalculator\\NewCalculator\\NewCalculator.csproj"
             }
           }
         }
@@ -6003,11 +6004,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -6046,12 +6042,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.31, 6.0.31]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.31, 6.0.31]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.31, 6.0.31]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206\\RuntimeIdentifierGraph.json"
       }
     }
   }
