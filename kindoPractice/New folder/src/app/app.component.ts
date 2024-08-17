@@ -1,6 +1,6 @@
 import { Observable } from "rxjs";
 import { Component, OnInit } from "@angular/core";
-import { Validators, FormBuilder, FormGroup } from "@angular/forms";
+import { Validators, FormBuilder, FormGroup, ValidatorFn, AbstractControl, ReactiveFormsModule } from "@angular/forms";
 
 import {
     AddEvent,
@@ -19,13 +19,14 @@ import { Product } from "./model";
 import { EditService } from "./odata.service";
 
 import { map } from "rxjs/operators";
+import { HttpClientModule } from "@angular/common/http";
+import { TestBed } from "@angular/core/testing";
 
-@Component({
-    selector: "my-app",
-    template: `
+const newLocal = `
     <div>
       <h2 *ngIf="errorNow">Error in Price</h2>
       <h2 *ngIf="SarahError1"  style="color:red; font-size:small">Name should contain at least 2 characters (Sarah)</h2>
+      <h2 *ngIf="ZeyadError1" style="color:red">Units in Stock must be positive</h2>
     </div>
     <kendo-grid
       #grid
@@ -87,7 +88,10 @@ import { map } from "rxjs/operators";
         </ng-template>
       </kendo-grid-command-column>
     </kendo-grid>
-  `,
+  `;
+@Component({
+    selector: "my-app",
+    template: newLocal,
 })
 export class AppComponent implements OnInit {
     public view!: Observable<GridDataResult>;
@@ -103,6 +107,8 @@ export class AppComponent implements OnInit {
         public editService: EditService
     ) { }
     SarahError1: boolean = false;
+    errorNow: boolean = false;
+    ZeyadError1: boolean = false;
 
     public ngOnInit(): void {
         this.view = this.editService.pipe(
@@ -181,11 +187,20 @@ export class AppComponent implements OnInit {
         this.editService.cancelChanges();
     }
 
-    errorNow: boolean = false;
+    // Custom validator for positive units in stock
+    private positiveNumberValidator(): ValidatorFn {
+        return (control: AbstractControl): { [key: string]: any } | null => {
+            const value = control.value;
+            return value != null && value <= 0 ? { 'positiveNumber': true } : null;
+        };
+    }
 
-    //TODO 5 Validation
     public createFormGroup(dataItem: Product): FormGroup {
-        if (dataItem.UnitPrice < 0) this.errorNow = true;
+      if(dataItem.UnitPrice<0)
+        this.errorNow = true;
+      if(dataItem.UnitsInStock>=0)
+        this.ZeyadError1 = true; 
+
         return this.formBuilder.group({
             ProductID: dataItem.ProductID,
             ProductName: [dataItem.ProductName, Validators.required],
@@ -195,10 +210,10 @@ export class AppComponent implements OnInit {
                 Validators.compose([
                     Validators.required,
                     Validators.pattern("^[0-9]{1,3}"),
+                    this.positiveNumberValidator() // Add the custom validator here
                 ]),
             ],
             Discontinued: dataItem.Discontinued,
         });
-
     }
 }
