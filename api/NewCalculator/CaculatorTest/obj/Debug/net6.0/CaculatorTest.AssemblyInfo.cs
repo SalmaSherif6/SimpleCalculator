@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CaculatorTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+274958de8846deaa5d9ba9c70248cf9855768f70")]
 [assembly: System.Reflection.AssemblyProductAttribute("CaculatorTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CaculatorTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

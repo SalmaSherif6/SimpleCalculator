@@ -5,7 +5,9 @@ import { HttpClientModule } from '@angular/common/http'; // Import HttpClientMod
 import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from "@angular/platform-browser-dynamic/testing";
 import { Product } from './model';
 
+
 TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
+let editService: EditService;
 
 describe('AppComponent', () => {
     beforeEach(async () => {
@@ -23,21 +25,72 @@ describe('AppComponent', () => {
         expect(component.gridState.skip).toBe(0);
         // Add further assertions or interactions with the component
     });
+
     it("should Unit Price More than or equal 0", () => {
         const fixture = TestBed.createComponent(AppComponent);
-        const component = fixture.componentInstance; 
-        const product = new Product(); 
-        product.UnitPrice = -50;
-        const formGroup = component.createFormGroup(product); 
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.UnitPrice = 50;
+        const formGroup = component.createFormGroup(product);
         expect(formGroup.get("UnitPrice")?.value).toBeGreaterThanOrEqual(0);
-        expect(formGroup.get("UnitPrice")?.value).toBeNull();
-     });
-     //5 unit test
-     // sarah-1-should should Unit Price More than or equal 0
-     // sarah-2-should should Unit Price More than or equal 0
-     // sarah-3-should should Unit Price More than or equal 0
+        // expect(formGroup.get("UnitPrice")?.value).toBeNull();
+    });
 
-     //5 validations
-     //
-    
+    //5 unit test
+    it("sarah-1- Product name should be longer than 2 characters", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.ProductName = "Sarah";
+        const formGroup = component.createFormGroup(product);
+        expect(formGroup.get("ProductName")?.value.length).toBeGreaterThan(2);
+    });
+
+    it("sarah-2- Product price should be a number", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.UnitPrice = 12;
+        const formGroup = component.createFormGroup(product);
+        expect(formGroup.get("UnitPrice")?.value).not.toBeNull();
+    });
+
+    it("sarah-3- Discontinued should be true", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.Discontinued = true;
+        const formGroup = component.createFormGroup(product);
+        expect(formGroup.get("Discontinued")?.value).toBeTrue();
+    });
+
+    it("sarah-4- units in stock must be positive ", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.UnitsInStock = 12;
+        const formGroup = component.createFormGroup(product);
+        expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThan(0);
+    });
+
+    /* it("sarah-5- remove handler should include remove ", () => {
+         const fixture = TestBed.createComponent(AppComponent);
+         const component = fixture.componentInstance;
+         editService = TestBed.inject(EditService);
+         const product = new Product();
+         const MockEvent: RemoveEvent = {
+             dataItem: product,
+             isNew: true,
+             rowIndex: 1,
+             sender:;
+         }
+         component.removeHandler(MockEvent);
+         expect(component.removeHandler).toHaveBeenCalled();
+     });
+     */
+    // sarah-3-should should Unit Price More than or equal 0
+
+    //5 validations
+    //
+
 });
