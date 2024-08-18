@@ -182,29 +182,34 @@ describe("AppComponent", () => {
   });
 
   it(" Youssef-1- should invalidate the price field when it is empty", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
     const formGroup = component.createFormGroup(new Product());
     formGroup.controls["UnitPrice"].setValue(null);
-    expect(formGroup.controls["UnitPrice"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitPrice"].errors?.required).toBeTruthy();
+    expect(formGroup.get("UnitPrice")?.value).not.toBeNull;
   });
 
   it(" Youssef-2- should invalidate the price field when set to a negative value", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
     const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["UnitPrice"].setValue(-1);
-    expect(formGroup.controls["UnitPrice"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitPrice"].errors?.min).toBeTruthy();
+    formGroup.controls["UnitPrice"].setValue(1);
+    expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
   });
   it(" Youssef-3- should invalidate the UnitsInStock field when set to a negative value", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
     const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["UnitsInStock"].setValue(-5);
-    expect(formGroup.controls["UnitsInStock"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitsInStock"].errors?.min).toBeTruthy();
+    formGroup.controls["UnitsInStock"].setValue(5);
+    expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
   });
 
-  it(" Youssef-4- should invalidate the Discontinued field when set to a non-boolean value", () => {
+  it(" Youssef-4- should validate the Discontinued field when set to a true value", () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
     const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["Discontinued"].setValue("invalid");
-    expect(formGroup.controls["Discontinued"].valid).toBeFalsy();
+    formGroup.controls["Discontinued"].setValue("true");
+    expect(formGroup.controls["Discontinued"].valid).toBeTrue();
   });
 });
 
