@@ -207,3 +207,49 @@ describe("AppComponent", () => {
     expect(formGroup.controls["Discontinued"].valid).toBeFalsy();
   });
 });
+
+it("should create a FormGroup with the correct controls", () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance;
+  fixture.detectChanges(); // Trigger initial data binding
+  expect(component.gridState.skip).toBe(0);
+  // Add further assertions or interactions with the component
+});
+it("mariam-1-should Unit Price More than or equal 0", () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance; 
+  const product = new Product(); 
+  product.UnitPrice = 50;
+  const formGroup = component.createFormGroup(product); 
+  expect(formGroup.get("UnitPrice")?.value).toBeGreaterThanOrEqual(0);
+});
+
+it("mariam-2-product name should not be null", () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance;
+  const product = new Product();
+  product.ProductName = "Mariam";
+  const formGroup = component.createFormGroup(product);
+  expect(formGroup.get("ProductName")).toBeDefined();
+})
+
+it("mariam-3-Units in stock should be More than or equal 0", () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance; 
+  const product = new Product(); 
+  product.UnitsInStock = 50;
+  const formGroup = component.createFormGroup(product); 
+  expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
+});
+
+
+})
+
+it("mariam-5-Discontinued should be boolean", () => {
+  const fixture = TestBed.createComponent(AppComponent);
+  const component = fixture.componentInstance;
+  const product = new Product(); 
+  product.Discontinued = true;
+  const formGroup = component.createFormGroup(product); 
+  expect(formGroup.get("Discontinued").value).toMatch('true'||'false');
+})
