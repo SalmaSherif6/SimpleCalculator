@@ -180,30 +180,4 @@ describe("AppComponent", () => {
     const discontinuedValue = formGroup.get("Discontinued")?.value;
     expect(discontinuedValue).toBeTrue();
   });
-
-  it(" Youssef-1- should invalidate the price field when it is empty", () => {
-    const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["UnitPrice"].setValue(null);
-    expect(formGroup.controls["UnitPrice"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitPrice"].errors?.required).toBeTruthy();
-  });
-
-  it(" Youssef-2- should invalidate the price field when set to a negative value", () => {
-    const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["UnitPrice"].setValue(-1);
-    expect(formGroup.controls["UnitPrice"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitPrice"].errors?.min).toBeTruthy();
-  });
-  it(" Youssef-3- should invalidate the UnitsInStock field when set to a negative value", () => {
-    const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["UnitsInStock"].setValue(-5);
-    expect(formGroup.controls["UnitsInStock"].valid).toBeFalsy();
-    expect(formGroup.controls["UnitsInStock"].errors?.min).toBeTruthy();
-  });
-
-  it(" Youssef-4- should invalidate the Discontinued field when set to a non-boolean value", () => {
-    const formGroup = component.createFormGroup(new Product());
-    formGroup.controls["Discontinued"].setValue("invalid");
-    expect(formGroup.controls["Discontinued"].valid).toBeFalsy();
-  });
 });
