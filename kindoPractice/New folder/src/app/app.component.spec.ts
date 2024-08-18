@@ -13,6 +13,25 @@ TestBed.initTestEnvironment(
   platformBrowserDynamicTesting()
 );
 let editService: EditService;
+let sarahProducts: Product[];
+sarahProducts = new Array<Product>();
+let tempProduct: Product;
+
+tempProduct = { ProductID: 1, ProductName: "Product1", UnitPrice: 200, Category: null };
+sarahProducts.push(tempProduct);
+
+tempProduct = { ProductID: 2, ProductName: "Product2", UnitPrice: null, Category: null };
+sarahProducts.push(tempProduct);
+
+tempProduct = { ProductID: 3, ProductName: "P", UnitPrice: 200, Category: null };
+sarahProducts.push(tempProduct);
+
+tempProduct = { ProductID: -1, ProductName: "Product3", UnitPrice: 200, Category: null };
+sarahProducts.push(tempProduct);
+
+tempProduct = { ProductID: 4, ProductName: "A", UnitPrice: null, Category: null };
+sarahProducts.push(tempProduct);
+
 
 describe("AppComponent", () => {
   beforeEach(async () => {
@@ -78,22 +97,20 @@ describe("AppComponent", () => {
     expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThan(0);
   });
 
-  /* it("sarah-5- remove handler should include remove ", () => {
-         const fixture = TestBed.createComponent(AppComponent);
-         const component = fixture.componentInstance;
-         editService = TestBed.inject(EditService);
-         const product = new Product();
-         const MockEvent: RemoveEvent = {
-             dataItem: product,
-             isNew: true,
-             rowIndex: 1,
-             sender:;
-         }
-         component.removeHandler(MockEvent);
-         expect(component.removeHandler).toHaveBeenCalled();
-     });
-     */
-  // sarah-3-should should Unit Price More than or equal 0
+    it("sarah6- Product details must be correct", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        while (sarahProducts.length > 0) {
+            const product = sarahProducts.pop();
+            const formGroup = component.createFormGroup(product);
+            expect(formGroup.get("ProductName")?.value.length).toBeGreaterThan(2);
+            expect(formGroup.get("UnitPrice")?.value).not.toBeNull();
+            expect(product.ProductID).toBeGreaterThan(0);
+        }
+
+
+    });
+
 
   //5 validations
   //
@@ -211,7 +228,7 @@ describe("AppComponent", () => {
     formGroup.controls["Discontinued"].setValue("true");
     expect(formGroup.controls["Discontinued"].valid).toBeTrue();
   });
-});
+
 
 it("should create a FormGroup with the correct controls", () => {
   const fixture = TestBed.createComponent(AppComponent);
@@ -230,13 +247,13 @@ it("mariam-1-should Unit Price More than or equal 0", () => {
 });
 
 it("mariam-2-product name should not be null", () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  const component = fixture.componentInstance;
-  const product = new Product();
-  product.ProductName = "Mariam";
-  const formGroup = component.createFormGroup(product);
-  expect(formGroup.get("ProductName")).toBeDefined();
-})
+    const fixture = TestBed.createComponent(AppComponent);
+    const component = fixture.componentInstance;
+    const product = new Product();
+    product.ProductName = "Mariam";
+    const formGroup = component.createFormGroup(product);
+    expect(formGroup.get("ProductName")).toBeDefined();
+});
 
 it("mariam-3-Units in stock should be More than or equal 0", () => {
   const fixture = TestBed.createComponent(AppComponent);
@@ -248,13 +265,12 @@ it("mariam-3-Units in stock should be More than or equal 0", () => {
 });
 
 
-})
-
-it("mariam-5-Discontinued should be boolean", () => {
-  const fixture = TestBed.createComponent(AppComponent);
-  const component = fixture.componentInstance;
-  const product = new Product(); 
-  product.Discontinued = true;
-  const formGroup = component.createFormGroup(product); 
-  expect(formGroup.get("Discontinued").value).toMatch('true'||'false');
-})
+    it("mariam-5-Discontinued should be boolean", () => {
+        const fixture = TestBed.createComponent(AppComponent);
+        const component = fixture.componentInstance;
+        const product = new Product();
+        product.Discontinued = true;
+        const formGroup = component.createFormGroup(product);
+        expect(formGroup.get("Discontinued").value).toMatch('true' || 'false');
+    });
+});
