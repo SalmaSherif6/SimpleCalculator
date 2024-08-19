@@ -230,7 +230,7 @@ prod3.UnitPrice = 10;
 prod3.Discontinued = true;
 prod3.UnitsInStock = 3;
 var prod4 = new Product();
-prod4.ProductName = null;
+prod4.ProductName = "";
 prod4.UnitPrice = 70;
 prod4.Discontinued = false;
 prod4.UnitsInStock = 5;
@@ -246,25 +246,18 @@ it("should loop thru all products in array", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
 
-    products.forEach(element => {
-        const fixture = TestBed.createComponent(AppComponent);
-        const component = fixture.componentInstance;
-        const formGroup = component.createFormGroup(element); 
-        it("mariam-1-should Unit Price More than or equal 0", () => {
-            expect(formGroup.get("UnitPrice")?.value).toBeGreaterThanOrEqual(0);
-         });
-    
-        it("mariam-2-product name should not be null", () => {
-            expect(formGroup.get("ProductName")).toBeDefined();
-         })
-    
-        it("mariam-3-Units in stock should be More than or equal 0", () => {
-            expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
-         });
-    
-         it("mariam-5-Discontinued should be false", () => {
-            expect(formGroup.get("Discontinued").value).toMatch('false');
-         })
+    it("should loop thru all products in array", () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
 
-    })
+      products.forEach(element => {
+          const fixture = TestBed.createComponent(AppComponent);
+          const component = fixture.componentInstance;
+          const formGroup = component.createFormGroup(element); 
+          expect(formGroup.get("UnitPrice")?.value).toBeGreaterThanOrEqual(0);
+          expect(formGroup.get("ProductName")).toBeDefined();
+          expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
+          expect(formGroup.get("Discontinued").value).toMatch('false');
+      })
+  })
 })
