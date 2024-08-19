@@ -204,11 +204,104 @@ describe("AppComponent", () => {
     expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
   });
 
-  it(" Youssef-4- should validate the Discontinued field when set to a true value", () => {
+  it(" Youssef-4- should validate the Discontinued field when set to a true  value", () => {
     const fixture = TestBed.createComponent(AppComponent);
     const component = fixture.componentInstance;
     const formGroup = component.createFormGroup(new Product());
     formGroup.controls["Discontinued"].setValue("true");
     expect(formGroup.controls["Discontinued"].valid).toBeTrue();
+  });
+
+  const products: Product[] = [
+    {
+      ProductID: 1,
+      ProductName: "Apple",
+      Discontinued: false,
+      UnitsInStock: 100,
+      UnitPrice: 1.5,
+      Category: {
+        CategoryID: 1,
+        CategoryName: "Fruits",
+      },
+    },
+    {
+      ProductID: 2,
+      ProductName: "Laptop",
+      Discontinued: true,
+      UnitsInStock: 50,
+      UnitPrice: 999.99,
+      Category: {
+        CategoryID: 2,
+        CategoryName: "Electronics",
+      },
+    },
+    {
+      ProductID: 3,
+      ProductName: "Pen",
+      Discontinued: false,
+      UnitsInStock: 500,
+      UnitPrice: 0.99,
+      Category: {
+        CategoryID: 3,
+        CategoryName: "Stationery",
+      },
+    },
+    {
+      ProductID: 4,
+      ProductName: "Chair",
+      Discontinued: true,
+      UnitsInStock: 0,
+      UnitPrice: 49.99,
+      Category: {
+        CategoryID: 4,
+        CategoryName: "Furniture",
+      },
+    },
+    {
+      ProductID: 5,
+      ProductName: "Chocolate",
+      Discontinued: false,
+      UnitsInStock: 300,
+      UnitPrice: 2.5,
+      Category: {
+        CategoryID: 1,
+        CategoryName: "Fruits",
+      },
+    },
+  ];
+
+  products.forEach((product) => {
+    it(" Youssef-1- should invalidate the price field when it is empty", () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      const formGroup = component.createFormGroup(new Product());
+      formGroup.controls["UnitPrice"].setValue(null);
+      expect(formGroup.get("UnitPrice")?.value).not.toBeNull();
+    });
+
+    it(" Youssef-2- should invalidate the price field when set to a negative value", () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      const formGroup = component.createFormGroup(new Product());
+      formGroup.controls["UnitPrice"].setValue(1);
+      expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
+    });
+
+    it(" Youssef-3- should invalidate the UnitsInStock field when set to a negative value", () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      const formGroup = component.createFormGroup(new Product());
+      formGroup.controls["UnitsInStock"].setValue(5);
+      expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
+    });
+
+    // Intentionally causing this test case to fail
+    it(" Youssef-4- should validate the Discontinued field when set to a true value", () => {
+      const fixture = TestBed.createComponent(AppComponent);
+      const component = fixture.componentInstance;
+      const formGroup = component.createFormGroup(new Product());
+      formGroup.controls["Discontinued"].setValue("true"); // Setting string instead of boolean
+      expect(formGroup.controls["Discontinued"].valid).toBeTrue(); // This will fail
+    });
   });
 });
