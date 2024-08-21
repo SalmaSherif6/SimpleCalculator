@@ -1,0 +1,69 @@
+<div>
+  <h2 *ngIf="errorNow">Error in Price</h2>
+  <h2 *ngIf="SarahError1" style="color: red; font-size: small">
+    Name should contain at least 2 characters (Sarah)
+  </h2>
+  <h2 *ngIf="ZeyadError1" style="color: red">
+    Units in Stock must be positive
+  </h2>
+</div>
+<kendo-grid
+  #grid
+  [data]="view | async"
+  [pageable]="true"
+  [pageSize]="gridState.take"
+  [skip]="gridState.skip"
+  [navigable]="true"
+  [loading]="this.editService.loading"
+  (dataStateChange)="onStateChange($event)"
+  (cellClick)="cellClickHandler($event)"
+  (cellClose)="cellCloseHandler($event)"
+  (cancel)="cancelHandler($event)"
+  (save)="saveHandler($event)"
+  (remove)="removeHandler($event)"
+  (add)="addHandler($event)"
+>
+  <ng-template kendoGridToolbarTemplate>
+    <button kendoGridAddCommand>Add new</button>
+    <button
+      kendoButton
+      [disabled]="!editService.hasChanges()"
+      (click)="saveChanges(grid)"
+    >
+      Save Changes
+    </button>
+    <button
+      kendoButton
+      [disabled]="!editService.hasChanges()"
+      (click)="cancelChanges(grid)"
+    >
+      Cancel Changes
+    </button>
+  </ng-template>
+  <kendo-grid-column
+    field="ProductName"
+    title="Product Name"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="UnitPrice"
+    editor="numeric"
+    title="Price"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="Discontinued"
+    editor="boolean"
+    title="Discontinued"
+  ></kendo-grid-column>
+  <kendo-grid-column
+    field="UnitsInStock"
+    editor="numeric"
+    title="Units In Stock"
+  ></kendo-grid-column>
+  <kendo-grid-command-column title="command" [width]="220">
+    <ng-template kendoGridCellTemplate let-isNew="isNew">
+      <button kendoGridRemoveCommand>Remove</button>
+      <button kendoGridSaveCommand>Add</button>
+      <button kendoGridCancelCommand>Cancel</button>
+    </ng-template>
+  </kendo-grid-command-column>
+</kendo-grid>

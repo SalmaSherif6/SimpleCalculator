@@ -274,23 +274,26 @@ describe("AppComponent", () => {
     it(" Youssef-1- should invalidate the price field when it is empty", () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
-      const formGroup = component.createFormGroup(new Product());
+      const formGroup = component.createFormGroup(product);
       formGroup.controls["UnitPrice"].setValue(null);
+      formGroup.controls["UnitPrice"].setValue(-5);
       expect(formGroup.get("UnitPrice")?.value).not.toBeNull();
+      expect(formGroup.get("UnitPrice")?.value).toBeGreaterThanOrEqual(0);
     });
 
     it(" Youssef-2- should invalidate the price field when set to a negative value", () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
-      const formGroup = component.createFormGroup(new Product());
+      const formGroup = component.createFormGroup(product);
       formGroup.controls["UnitPrice"].setValue(1);
       expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
+      //negative
     });
 
     it(" Youssef-3- should invalidate the UnitsInStock field when set to a negative value", () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
-      const formGroup = component.createFormGroup(new Product());
+      const formGroup = component.createFormGroup(product);
       formGroup.controls["UnitsInStock"].setValue(5);
       expect(formGroup.get("UnitsInStock")?.value).toBeGreaterThanOrEqual(0);
     });
@@ -299,7 +302,7 @@ describe("AppComponent", () => {
     it(" Youssef-4- should validate the Discontinued field when set to a true value", () => {
       const fixture = TestBed.createComponent(AppComponent);
       const component = fixture.componentInstance;
-      const formGroup = component.createFormGroup(new Product());
+      const formGroup = component.createFormGroup(product);
       formGroup.controls["Discontinued"].setValue("true"); // Setting string instead of boolean
       expect(formGroup.controls["Discontinued"].valid).toBeTrue(); // This will fail
     });
